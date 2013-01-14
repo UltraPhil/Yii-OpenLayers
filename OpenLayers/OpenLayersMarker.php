@@ -12,6 +12,7 @@ class OpenLayersMarker
     public $closeButton = true;
     public $location;
     public $layer;
+    public $icon;
 
     /**
      * Default Marker constructor
@@ -21,12 +22,13 @@ class OpenLayersMarker
      * @param string $content marker's content
      * @param bool $closeButton True: display close button.
      */
-    public function __construct( $location, $class, $content, $closeButton = true )
+    public function __construct( $location, $class, $content, $closeButton = true, $icon = "" )
     {
 	$this->location = $location;
 	$this->class = $class;
 	$this->content = $content;
 	$this->closeButton = $closeButton;
+        $this->icon = $icon;
     }
     
     /**
@@ -39,7 +41,7 @@ class OpenLayersMarker
 	$location = $this->location->id;
 	$siteNumber = substr( $location, strpos( $location, "_" ) + 1 );
 
-	return "addMarker($location, \"$siteNumber\", $layer, $this->class, '$this->content', " . (($this->closeButton) ? "true" : "false") . ");";
+	return "addMarker($location, \"$siteNumber\", $layer, $this->class, '$this->content', " . (($this->closeButton) ? "true" : "false") . ", true, '$this->icon');";
     }
 
 }

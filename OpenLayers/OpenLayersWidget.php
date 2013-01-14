@@ -111,12 +111,7 @@
  *     return url + path;
  * }
  * </pre>
- *
- *
- * By configuring the {@link $options} property, you may specify the options
- * that need to be passed to the Highcharts JavaScript object. Please refer to
- * the demo gallery and documentation on the {@link http://www.highcharts.com/
- * Highcharts website} for possible options.
+
  */
 class OpenLayersWidget extends CWidget
 {
@@ -204,15 +199,22 @@ class OpenLayersWidget extends CWidget
     protected function registerScripts()
     {
 	$openLayersFileName = "OpenLayers.js";
-	$openLayersUncompressedFileName = "OpenLayers.src.js";
+	$openLayersUncompressedFileName = "OpenLayers.debug.js";
 	$markerHelperFileName = "addMarker.js";
 	$javascriptHeaderFileName = "javascriptHeader.js";
-
+        $autoCompletteCSS = "AutoCompleteCSS.css";
+        $autoCompleteFixer = "AutoComplete.js";
+        $urlFunctions = "urlFunctions.js";
+        
+        Yii::app()->clientScript->registerCssFile( $this->assetsBaseURL . $autoCompletteCSS , 'screen' );
 	Yii::app()->clientScript->registerScriptFile( $this->assetsBaseURL . ((YII_DEBUG) ? $openLayersUncompressedFileName : $openLayersFileName), CClientScript::POS_HEAD );
 	Yii::app()->clientScript->registerScriptFile( $this->assetsBaseURL . $markerHelperFileName, CClientScript::POS_HEAD );
 	Yii::app()->clientScript->registerScriptFile( $this->assetsBaseURL . $javascriptHeaderFileName, CClientScript::POS_HEAD );
 	Yii::app()->clientScript->registerScript( 'OpenlayersImgPath', 'OpenLayers.ImgPath = "' . $this->assetsBaseURL . 'img/"', CClientScript::POS_HEAD );
-
+        Yii::app()->clientScript->registerScriptFile( $this->assetsBaseURL . $autoCompleteFixer, CClientScript::POS_HEAD );
+        Yii::app()->clientScript->registerScriptFile( $this->assetsBaseURL . $urlFunctions, CClientScript::POS_HEAD );
+        
+        
 	if ( isset( $this->OverrideMissingTileURL ) )
 	{
 	    Yii::app()->clientScript->registerScript(
@@ -226,7 +228,8 @@ class OpenLayersWidget extends CWidget
 		    };', CClientScript::POS_BEGIN
 	    );
 	}
-
+        
+        
 	if ( $this->requiredScript )
 	    Yii::app()->clientScript->registerScriptFile( Yii::app()->getAssetManager()->publish( $this->requiredScript ), CClientScript::POS_HEAD );
     }

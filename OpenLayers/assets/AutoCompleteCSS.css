@@ -1,0 +1,26 @@
+/*
+    This file is required by the extension and loaded on run()
+
+
+   It contains the css properties for the autocomplete textbox
+
+    These rules are kept separated from the other CSS files in case OpenLayers decide to
+    update them.
+
+*/
+
+/* setting your z-index for the OpenLayers map, else the autocomplete popup will be displayed behind the map*/
+div.olMapViewport {
+    z-index: 0;
+}
+
+
+.ui-autocomplete
+{
+    max-height: 300px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    /* add padding to account for vertical scrollbar */
+    padding-right: 20px;
+}

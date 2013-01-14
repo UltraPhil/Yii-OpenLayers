@@ -44,6 +44,9 @@ class OpenLayersCustomisableClass
 	return CJavaScript::encode( $this->options );
     }
 
+    public function clearOptions(){
+        unset($this->options);
+    }
 }
 
 ?>

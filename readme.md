@@ -14,7 +14,30 @@ What I'm planning to support:
 - JS scripts to help interracting with the map.
 
 
-Current Version 0.1 (2012-12-21 13:00)
+Current Version 0.2 (2013-01-14 8:30)
+--------------
+
+This is mostly a cleaning update. We are still working to improve the
+build quality, since this extension was before a quick-released extension in order
+to make OpenLayers work in an OOP way.
+
+Nonetheless, 3 new features has been included:
+
+-OpenLayers updated to last stable release (2.12, up from 2.11)
+-It is now possible to pass the desired marker icon's filename.
+	-If nothing is given, the constructor will choose "marker.png" as the default icon.
+
+-Added support for a search box with autocomplete.
+
+Some files have been added:
+
+-autoComplete.js base js fle with methods for supporting autocomplete search boxes easily.
+-autoCompleteCSS.css self-explanatory.
+-urlFunctions.js is a file that was missing in the initial (0.1) release.
+
+OpenLayersWidget.php->registerScripts has been adjusted with the new files.
+
+Version 0.1 (2012-12-21 13:00)
 --------------
 
 First Commit !

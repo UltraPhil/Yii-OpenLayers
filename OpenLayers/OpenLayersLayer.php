@@ -54,7 +54,60 @@ class OpenLayersLayer extends OpenLayersCustomisableClass
 
 	return $constructString;
     }
-
+    
+    /**
+     * This function's only purpose is to get rid of some useless code in the view.
+     * This way, it is easier to "quick start".
+     * 
+     * (When defining your widget in the view, on the "layers" attribute you can just write
+     * 
+     * 'layers' => array(OpenLayersLayer::createGoogleMapsBuddyLayer('My Name', 'MyUrlForTiles'), OpenLayersLayer::createYahooMapsBuddyLayer(), $layerMarkers),
+     * 
+     * Instead of doing
+     * 
+     * 'layers' => array(New OpenLayersLayer(
+     *      'GMBGoogleTerrain',
+     *      'TMS',
+     *      array(
+     *      'Google Maps map',
+     *      CHtml::normalizeUrl( array('/)). '/tiles/GMB_GoogleTerrain/'),
+     *      params => array(
+     *          'type' => 'png'
+     *          'getURL' => 'js:getUrlGoogleMapBuddy',
+     *      ),)
+     * , OpenLayersLayer::createYahooMapsBuddyLayer(), $layerMarkers),
+     * 
+     * @param type $label the Label in the Layer selector
+     * @param type $url the URL for retrieving tiles
+     * @return \self a new instance of the class
+     */
+    public static function createGoogleMapsBuddyLayer($label = "", $url = ""){
+        return new self("GMBGoogleTerrain", "TMS", array(
+	    ($label != "" ? $label : "Google Terrain map"),
+	    ($url != "" ? $url : CHtml::normalizeUrl( array('/') ) . '/tiles/GMB_GoogleTerrain/'),
+	    "params" => array(
+		'type' => 'png',
+		'getURL' => 'js:getUrlGoogleMapBuddy',
+	    ),
+		) );
+    }
+    
+    /**
+     * This function's only purpose is the same as OpenLayersLayer::createGoogleMapsBuddyLayer()
+     * @param type $label
+     * @param type $url
+     * @return \self
+     */
+    public static function createYahooMapsLayer($label = "", $url = ""){
+        return new self( "YahooMaps", "TMS", array(
+            ($label != "" ? $label : "Yahoo Relief/Routes Map"),
+            ($url != "" ? $url : CHtml::normalizeUrl( array('/') ) . '/tiles/YahooMaps/'),
+	    "params" => array(
+		'type' => 'png',
+		'getURL' => 'js:getUrlGMapCatcher',
+	    ),
+		) );
+    }
 }
 
 ?>
