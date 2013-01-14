@@ -24,6 +24,7 @@ to make OpenLayers work in an OOP way.
 Nonetheless, 3 new features has been included:
 
 -OpenLayers updated to last stable release (2.12, up from 2.11)
+
 -It is now possible to pass the desired marker icon's filename.
 	-If nothing is given, the constructor will choose "marker.png" as the default icon.
 
