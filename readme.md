@@ -23,18 +23,18 @@ to make OpenLayers work in an OOP way.
 
 Nonetheless, 3 new features has been included:
 
--OpenLayers updated to last stable release (2.12, up from 2.11)
+- OpenLayers updated to last stable release (2.12, up from 2.11)
 
--It is now possible to pass the desired marker icon's filename.
-	-If nothing is given, the constructor will choose "marker.png" as the default icon.
+- It is now possible to pass the desired marker icon's filename.
+	- If nothing is given, the constructor will choose "marker.png" as the default icon.
 
--Added support for a search box with autocomplete.
+- Added support for a search box with autocomplete.
 
 Some files have been added:
 
--autoComplete.js base js fle with methods for supporting autocomplete search boxes easily.
--autoCompleteCSS.css self-explanatory.
--urlFunctions.js is a file that was missing in the initial (0.1) release.
+- autoComplete.js base js fle with methods for supporting autocomplete search boxes easily.
+- autoCompleteCSS.css self-explanatory.
+- urlFunctions.js is a file that was missing in the initial (0.1) release.
 
 OpenLayersWidget.php->registerScripts has been adjusted with the new files.
 
