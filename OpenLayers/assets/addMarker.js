@@ -23,11 +23,17 @@ function addMarker(ll, markerObj, layer, popupClass, popupContentHTML, closeBox,
     feature.data.popupContentHTML = popupContentHTML;
 
     feature.data.overflow = (overflow) ? "auto" : "hidden";
-    
+
     if(icon != ""){
-        feature.data.icon = new OpenLayers.Icon(OpenLayers.Util.getImageLocation(icon) , {w:21,h:25},{x:-10.5,y:-25});
+        feature.data.icon = new OpenLayers.Icon(OpenLayers.Util.getImageLocation(icon) , {
+            w:21,
+            h:25
+        },{
+            x:-10.5,
+            y:-25
+        });
     }
-    
+
     var marker = feature.createMarker();
 
     marker.events.register("mousedown", feature, function(evt)

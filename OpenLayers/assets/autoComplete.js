@@ -7,7 +7,7 @@ $(document).ready(function()
     // Formatte la liste de completion automatique
     $( "#siteChooser" ).autocomplete().data( "autocomplete" )._renderItem = function( ul, item ) {
         var format = "<a><b>" + item.Name + "</b></a>";
-        
+
         return $( "<li></li>" )
         .data( "item.autocomplete", item )
         .append( format )
@@ -23,4 +23,16 @@ $(document).ready(function()
             event.preventDefault();
     });
 
+});
+
+// Active le site selectionne (trigger l\'evenement MouseDown, et centre la map
+$(document).ready(function()
+{
+    $( "#siteChooser" ).bind("autocompleteselect", function( event, ui ) {
+        markers[ui.item.Id].events.triggerEvent("mousedown");
+
+        map.setCenter(markers[ui.item.Id].lonlat, 12);
+
+        return false;
+    });
 });

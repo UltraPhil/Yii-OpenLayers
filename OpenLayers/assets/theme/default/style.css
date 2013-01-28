@@ -10,7 +10,7 @@ div.olMapViewport {
 }
 
 div.olLayerDiv {
-   -moz-user-select: none;
+    -moz-user-select: none;
 }
 
 .olLayerGoogleCopyright {
@@ -36,22 +36,22 @@ div.olLayerDiv {
     font-size: smaller;
 }
 .olControlScaleLine {
-   display: block;
-   position: absolute;
-   left: 10px;
-   bottom: 15px;
-   font-size: xx-small;
+    display: block;
+    position: absolute;
+    left: 10px;
+    bottom: 15px;
+    font-size: xx-small;
 }
 .olControlScaleLineBottom {
-   border: solid 2px black;
-   border-bottom: none;
-   margin-top:-2px;
-   text-align: center;
+    border: solid 2px black;
+    border-bottom: none;
+    margin-top:-2px;
+    text-align: center;
 }
 .olControlScaleLineTop {
-   border: solid 2px black;
-   border-top: none;
-   text-align: center;
+    border: solid 2px black;
+    border-top: none;
+    text-align: center;
 }
 
 .olControlPermalink {
@@ -142,50 +142,50 @@ div.olControlMousePosition {
     height:0px;
 }
 .olControlNavToolbar div {
-  display:block;
-  width:  28px;
-  height: 28px;
-  top: 300px;
-  left: 6px;
-  position: relative;
+    display:block;
+    width:  28px;
+    height: 28px;
+    top: 300px;
+    left: 6px;
+    position: relative;
 }
 
 .olControlNavigationHistory {
-   background-image: url("img/navigation_history.png");
-   background-repeat: no-repeat;
-   width:  24px;
-   height: 24px;
+    background-image: url("img/navigation_history.png");
+    background-repeat: no-repeat;
+    width:  24px;
+    height: 24px;
 
 }
 .olControlNavigationHistoryPreviousItemActive {
-  background-position: 0px 0px;
+    background-position: 0px 0px;
 }
 .olControlNavigationHistoryPreviousItemInactive {
-   background-position: 0px -24px;
+    background-position: 0px -24px;
 }
 .olControlNavigationHistoryNextItemActive {
-   background-position: -24px 0px;
+    background-position: -24px 0px;
 }
 .olControlNavigationHistoryNextItemInactive {
-   background-position: -24px -24px;
+    background-position: -24px -24px;
 }
 
 .olControlNavToolbar .olControlNavigationItemActive {
-  background-image: url("img/panning-hand-on.png");
-  background-repeat: no-repeat;
+    background-image: url("img/panning-hand-on.png");
+    background-repeat: no-repeat;
 }
 .olControlNavToolbar .olControlNavigationItemInactive {
-  background-image: url("img/panning-hand-off.png");
-  background-repeat: no-repeat;
+    background-image: url("img/panning-hand-off.png");
+    background-repeat: no-repeat;
 }
 .olControlNavToolbar .olControlZoomBoxItemActive {
-  background-image: url("img/drag-rectangle-on.png");
-  background-color: orange;
-  background-repeat: no-repeat;
+    background-image: url("img/drag-rectangle-on.png");
+    background-color: orange;
+    background-repeat: no-repeat;
 }
 .olControlNavToolbar .olControlZoomBoxItemInactive {
-  background-image: url("img/drag-rectangle-off.png");
-  background-repeat: no-repeat;
+    background-image: url("img/drag-rectangle-off.png");
+    background-repeat: no-repeat;
 }
 .olControlEditingToolbar  {
     float:right;
@@ -194,36 +194,36 @@ div.olControlMousePosition {
     width: 200px;
 }
 .olControlEditingToolbar div {
-  background-image: url("img/editing_tool_bar.png");
-  background-repeat: no-repeat;
-  float:right;
-  width:  24px;
-  height: 24px;
-  margin: 5px;
+    background-image: url("img/editing_tool_bar.png");
+    background-repeat: no-repeat;
+    float:right;
+    width:  24px;
+    height: 24px;
+    margin: 5px;
 }
 .olControlEditingToolbar .olControlNavigationItemActive {
-  background-position: -103px -23px;
+    background-position: -103px -23px;
 }
 .olControlEditingToolbar .olControlNavigationItemInactive {
-  background-position: -103px -0px;
+    background-position: -103px -0px;
 }
 .olControlEditingToolbar .olControlDrawFeaturePointItemActive {
-  background-position: -77px -23px;
+    background-position: -77px -23px;
 }
 .olControlEditingToolbar .olControlDrawFeaturePointItemInactive {
-  background-position: -77px -0px;
+    background-position: -77px -0px;
 }
 .olControlEditingToolbar .olControlDrawFeaturePathItemInactive {
-  background-position: -51px 0px;
+    background-position: -51px 0px;
 }
 .olControlEditingToolbar .olControlDrawFeaturePathItemActive {
-  background-position: -51px -23px;
+    background-position: -51px -23px;
 }
 .olControlEditingToolbar .olControlDrawFeaturePolygonItemInactive {
-  background-position: -26px 0px;
+    background-position: -26px 0px;
 }
 .olControlEditingToolbar .olControlDrawFeaturePolygonItemActive {
-  background-position: -26px -23px ;
+    background-position: -26px -23px ;
 }
 div.olControlSaveFeaturesItemActive {
     background-image: url(img/save_features_on.png);
@@ -320,8 +320,8 @@ div.olControlSaveFeaturesItemInactive {
 }
 
 .olPopupCloseBox {
-  background: url("img/close.gif") no-repeat;
-  cursor: pointer;
+    background: url("img/close.gif") no-repeat;
+    cursor: pointer;
 }
 
 .olFramedCloudPopupContent {
@@ -330,18 +330,21 @@ div.olControlSaveFeaturesItemInactive {
 }
 
 .olControlNoSelect {
- -moz-user-select: none;
+    -moz-user-select: none;
 }
 
 .olImageLoadError {
-    background-color: pink;
+    /*    background-color: #cccccc;*/
+    background: -moz-linear-gradient(left bottom, #ccc 0%, #ccc 25%, #bbb 25%, #bbb 50%, #ccc 50%, #ccc 75%, #bbb 75%);
+    background: -ms-linear-gradient(left bottom, #ccc 0%, #ccc 25%, #bbb 25%, #bbb 50%, #ccc 50%, #ccc 75%, #bbb 75%);
+    background: -webkit-linear-gradient(left bottom, #ccc 0%, #ccc 25%, #bbb 25%, #bbb 50%, #ccc 50%, #ccc 75%, #bbb 75%);
     opacity: 0.5;
     filter: alpha(opacity=50); /* IE */
 }
 
 /**
  * Cursor styles
- */
+*/
 
 .olCursorWait {
     cursor: wait;
@@ -361,7 +364,7 @@ div.olControlSaveFeaturesItemInactive {
 
 /**
  * Layer switcher
- */
+*/
 .olControlLayerSwitcher {
     position: absolute;
     top: 25px;

@@ -11,12 +11,12 @@ class OpenLayersLonLat
     public $lat = 0.0;
 
     /**
-     * 
+     *
      * @param type $id  ID of the object to be rendered on the map
      * @param type $lon Longitude of the object
      * @param type $lat Latitude of the object
      */
-    public function __construct( $id, $lon, $lat )
+    public function __construct($id, $lon, $lat)
     {
 	$this->id = $id;
 	$this->lon = $lon;

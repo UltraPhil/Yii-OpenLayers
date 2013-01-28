@@ -144,12 +144,12 @@ class OpenLayersWidget extends CWidget
     private $assetsBaseURL;
     private $baseScriptsID;
 
-    public function __construct( $owner = null )
+    public function __construct($owner = null)
     {
-	parent::__construct( $owner );
+	parent::__construct($owner);
 
-	$this->assetsBasePath = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR;
-	$this->assetsBaseURL = Yii::app()->getAssetManager()->publish( $this->assetsBasePath, false, -1, YII_DEBUG ) . '/';
+	$this->assetsBasePath = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR;
+	$this->assetsBaseURL = Yii::app()->getAssetManager()->publish($this->assetsBasePath, false, -1, YII_DEBUG) . '/';
     }
 
     /**
@@ -164,13 +164,13 @@ class OpenLayersWidget extends CWidget
 	$this->htmlOptions['id'] = $id;
 	$this->map->id = $id;
 
-	echo CHtml::openTag( 'div', $this->htmlOptions );
-	echo CHtml::closeTag( 'div' );
+	echo CHtml::openTag('div', $this->htmlOptions);
+	echo CHtml::closeTag('div');
 
 	$this->registerScripts();
 
-	$this->map->options = CMap::mergeArray( $defaultMapOptions, $this->map->options );
-	Yii::app()->clientScript->registerScript( $this->baseScriptsID, $this->map->render(), CClientScript::POS_LOAD );
+	$this->map->options = CMap::mergeArray($defaultMapOptions, $this->map->options);
+	Yii::app()->clientScript->registerScript($this->baseScriptsID, $this->map->render(), CClientScript::POS_LOAD);
 
 	$this->registerLayers();
     }
@@ -180,15 +180,15 @@ class OpenLayersWidget extends CWidget
      */
     protected function registerLayers()
     {
-	foreach ( $this->layers as $layer )
+	foreach ($this->layers as $layer)
 	{
-	    Yii::app()->clientScript->registerScript( $this->baseScriptsID . '_' . $layer->id, $layer->render(), CClientScript::POS_LOAD );
+	    Yii::app()->clientScript->registerScript($this->baseScriptsID . '_' . $layer->id, $layer->render(), CClientScript::POS_LOAD);
 
-	    if ( count( $layer->markers ) )
-		foreach ( $layer->markers as $marker )
+	    if (count($layer->markers))
+		foreach ($layer->markers as $marker)
 		{
-		    Yii::app()->clientScript->registerScript( $this->baseScriptsID . '_' . rand(), $marker->location->render(), CClientScript::POS_LOAD );
-		    Yii::app()->clientScript->registerScript( $this->baseScriptsID . '_' . rand(), $marker->render(), CClientScript::POS_LOAD );
+		    Yii::app()->clientScript->registerScript($this->baseScriptsID . '_' . rand(), $marker->location->render(), CClientScript::POS_LOAD);
+		    Yii::app()->clientScript->registerScript($this->baseScriptsID . '_' . rand(), $marker->render(), CClientScript::POS_LOAD);
 		}
 	}
     }
@@ -202,20 +202,20 @@ class OpenLayersWidget extends CWidget
 	$openLayersUncompressedFileName = "OpenLayers.debug.js";
 	$markerHelperFileName = "addMarker.js";
 	$javascriptHeaderFileName = "javascriptHeader.js";
-        $autoCompletteCSS = "AutoCompleteCSS.css";
-        $autoCompleteFixer = "AutoComplete.js";
-        $urlFunctions = "urlFunctions.js";
-        
-        Yii::app()->clientScript->registerCssFile( $this->assetsBaseURL . $autoCompletteCSS , 'screen' );
-	Yii::app()->clientScript->registerScriptFile( $this->assetsBaseURL . ((YII_DEBUG) ? $openLayersUncompressedFileName : $openLayersFileName), CClientScript::POS_HEAD );
-	Yii::app()->clientScript->registerScriptFile( $this->assetsBaseURL . $markerHelperFileName, CClientScript::POS_HEAD );
-	Yii::app()->clientScript->registerScriptFile( $this->assetsBaseURL . $javascriptHeaderFileName, CClientScript::POS_HEAD );
-	Yii::app()->clientScript->registerScript( 'OpenlayersImgPath', 'OpenLayers.ImgPath = "' . $this->assetsBaseURL . 'img/"', CClientScript::POS_HEAD );
-        Yii::app()->clientScript->registerScriptFile( $this->assetsBaseURL . $autoCompleteFixer, CClientScript::POS_HEAD );
-        Yii::app()->clientScript->registerScriptFile( $this->assetsBaseURL . $urlFunctions, CClientScript::POS_HEAD );
-        
-        
-	if ( isset( $this->OverrideMissingTileURL ) )
+	$autoCompletteCSS = "AutoCompleteCSS.css";
+	$autoCompleteFixer = "autoComplete.js";
+	$urlFunctions = "urlFunctions.js";
+
+	Yii::app()->clientScript->registerCssFile($this->assetsBaseURL . $autoCompletteCSS, 'screen');
+	Yii::app()->clientScript->registerScriptFile($this->assetsBaseURL . ((YII_DEBUG) ? $openLayersUncompressedFileName : $openLayersFileName), CClientScript::POS_HEAD);
+	Yii::app()->clientScript->registerScriptFile($this->assetsBaseURL . $markerHelperFileName, CClientScript::POS_HEAD);
+	Yii::app()->clientScript->registerScriptFile($this->assetsBaseURL . $javascriptHeaderFileName, CClientScript::POS_HEAD);
+	Yii::app()->clientScript->registerScript('OpenlayersImgPath', 'OpenLayers.ImgPath = "' . $this->assetsBaseURL . 'img/"', CClientScript::POS_HEAD);
+	Yii::app()->clientScript->registerScriptFile($this->assetsBaseURL . $autoCompleteFixer, CClientScript::POS_HEAD);
+	Yii::app()->clientScript->registerScriptFile($this->assetsBaseURL . $urlFunctions, CClientScript::POS_HEAD);
+
+
+	if (isset($this->OverrideMissingTileURL))
 	{
 	    Yii::app()->clientScript->registerScript(
 		    'OverrideMissingTilesFunction', '
@@ -228,10 +228,10 @@ class OpenLayersWidget extends CWidget
 		    };', CClientScript::POS_BEGIN
 	    );
 	}
-        
-        
-	if ( $this->requiredScript )
-	    Yii::app()->clientScript->registerScriptFile( Yii::app()->getAssetManager()->publish( $this->requiredScript ), CClientScript::POS_HEAD );
+
+
+	if ($this->requiredScript)
+	    Yii::app()->clientScript->registerScriptFile(Yii::app()->getAssetManager()->publish($this->requiredScript), CClientScript::POS_HEAD);
     }
 
 }
